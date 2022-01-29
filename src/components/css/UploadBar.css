@@ -1,0 +1,13 @@
+.upload-bar-wrapper {
+    width:100%;
+    height:50px;
+}
+
+#input-form-wrapper {
+    /* overflow: hidden; */
+    line-height: 30px;
+    width: auto;
+    margin-left:auto;
+    margin-right:auto;
+    height:fit-content;
+}

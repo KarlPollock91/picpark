@@ -1,0 +1,14 @@
+.content-viewer {
+    width: 500px;
+    height:auto;
+}
+
+.content-text {
+    width: 500px;
+    height: 150px;
+}
+
+.content-comment {
+    width: 250px;
+    height:auto;
+}
