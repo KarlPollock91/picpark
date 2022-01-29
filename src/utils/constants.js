@@ -2,7 +2,7 @@
 //KarlPollock91@gmail.com
 //www.karlpollock.com
 
-export const SERVER_URL = "https://picpark.herokuapp.com/"
+export const SERVER_URL = "https://picpark.herokuapp.com"
 export const USER_STATUS = {
     0: "Banned",
     1: "Non-Member",
