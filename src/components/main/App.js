@@ -92,13 +92,13 @@ function App(props) {
                     <div className="overflow-auto col-8 vh-100 border border-secondary full-height">
                     
                         <Routes>
-                            <Route path="/" element={<SplashPage/>}/>
-                            <Route path="/s/:serverId" element={<Main refreshLeftSidebar={refreshLeftSidebar}/>} />
-                            <Route path="/createServer" element={ <ServerCreation refreshLeftSidebar={refreshLeftSidebar}/>}/>
-                            <Route path="/post/:serverId" element={<PostCreation/>}/>
-                            <Route path="/v/:serverId/:postId" element={<ViewPost />}/>
-                            <Route path="/profile/:userId" element={<ViewProfile refreshRightSidebar={refreshRightSidebar}/>}/>
-                            <Route path="/serverInfo/:serverId" element={<ViewServer refreshLeftSidebar={refreshLeftSidebar}/>}/>
+                            <Route path="/picpark" element={<SplashPage/>}/>
+                            <Route path="/picpark/s/:serverId" element={<Main refreshLeftSidebar={refreshLeftSidebar}/>} />
+                            <Route path="/picpark/createServer" element={ <ServerCreation refreshLeftSidebar={refreshLeftSidebar}/>}/>
+                            <Route path="/picpark/post/:serverId" element={<PostCreation/>}/>
+                            <Route path="/picpark/v/:serverId/:postId" element={<ViewPost />}/>
+                            <Route path="/picpark/profile/:userId" element={<ViewProfile refreshRightSidebar={refreshRightSidebar}/>}/>
+                            <Route path="/picpark/serverInfo/:serverId" element={<ViewServer refreshLeftSidebar={refreshLeftSidebar}/>}/>
                         </Routes>
 
                     </div>

@@ -58,7 +58,7 @@ function ServerCreation(props) {
     //Sends the user to the Main.js component for server with id serverId
     const finishServerCreation = (serverId) => {
         props.refreshLeftSidebar();
-        navigate(`/s/${serverId}`);
+        navigate(`/picpark/s/${serverId}`);
     }
         return (
             <div className="text-center position-relative w-100 h-100">

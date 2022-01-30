@@ -51,7 +51,7 @@ function ViewProfile(props) {
                 setUserId(res.data.userId);
                 setEditUsername(res.data.profileObject.username);
             } else if (res.status === 404) {
-                navigate('/');
+                navigate('/picpark');
             }
         });
     }, [navigate, params.userId, updateProfile]);

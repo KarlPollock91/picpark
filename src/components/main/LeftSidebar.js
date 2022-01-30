@@ -30,7 +30,7 @@ function LeftSidebar(props) {
 
     //Sends the user to the create server screen.
     const newServer = () => {
-        navigate(`/createServer`);
+        navigate(`/picpark/createServer`);
     }
 
     return(

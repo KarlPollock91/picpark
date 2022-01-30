@@ -51,7 +51,7 @@ function PostCreation(props) {
 
     //Returns the user to the server they were posting to.
     const exitPostCreation = () => {
-        navigate(`/s/${params.serverId}`);
+        navigate(`/picpark/s/${params.serverId}`);
     }
 
     return (

@@ -42,9 +42,9 @@ function ServerThumbnail(props) {
     //Handles selection of the dropdown menu.
     const handleSelect = (e) => {
         if (e === "view"){
-            navigate(`/serverInfo/${server._id}`);
+            navigate(`/picpark/serverInfo/${server._id}`);
         } else if (e === "visit") {
-            navigate(`/s/${server._id}`);
+            navigate(`/picpark/s/${server._id}`);
         }
     }
 

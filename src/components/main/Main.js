@@ -39,7 +39,7 @@ function Main(props) {
                 if (res.status === 200) {
                     setPostIds(res.data);
                 } else if (res.status === 404) {
-                    navigate('/')
+                    navigate('/picpark')
                 }
             }).catch((err) => {
                 setLoadedPosts(true);

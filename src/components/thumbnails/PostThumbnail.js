@@ -15,7 +15,7 @@ function PostThumbnail(props) {
 
     //Sends the user to the View Post component for this post.
     const viewPost = () => {
-        navigate(`/v/${props.postObject.serverId}/${props.postObject._id}`);
+        navigate(`/picpark/v/${props.postObject.serverId}/${props.postObject._id}`);
     }
 
     return(

@@ -62,7 +62,7 @@ function UserThumbnail(props) {
     //Handles the drop down menu for the post.
     const handleSelect = (e) => {
         if (e === "view"){
-            navigate(`/profile/${profile._id}`);
+            navigate(`/picpark/profile/${profile._id}`);
         } else if (e === "status") {
             props.changeRankCallback(profile._id, profile.username, serverPermission);
         }
