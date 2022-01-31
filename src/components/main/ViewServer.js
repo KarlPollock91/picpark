@@ -71,7 +71,7 @@ function ViewServer(props) {
                 setUserPermission(res.data.permission);
                 setEditServerName(res.data.serverObject.serverName);
             } else if (res.status === 404) {
-                navigate('/picpark');
+                navigate('/');
             } 
         });
     }, [navigate, params.serverId, updateServer]);
@@ -186,7 +186,7 @@ function ViewServer(props) {
                 }
             }).then((res) => {
                 props.refreshLeftSidebar();
-                navigate("/picpark");
+                navigate("/");
             });
         }
         
@@ -336,7 +336,7 @@ function ViewServer(props) {
 
     //Sends the user to the Main component of the server they're viewing the information of.
     const visitServer = () => {
-        navigate(`/picpark/s/${server._id}`);
+        navigate(`/s/${server._id}`);
     }
     
     return (

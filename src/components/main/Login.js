@@ -86,7 +86,7 @@ function Login(props) {
         .then((res) => {
             if (res.status === 200) {
                 localStorage.setItem("authToken", res.data.token);
-                navigate("/picpark")
+                navigate("/")
             } 
         })
         .catch((err) => {

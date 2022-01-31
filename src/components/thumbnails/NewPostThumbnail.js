@@ -14,7 +14,7 @@ function NewPostThumbnail(props) {
 
     //Sends the user to the post creation component.
     const newPost = () => {
-        navigate(`/picpark/post/${props.serverId}`);
+        navigate(`/post/${props.serverId}`);
     }
 
     return(

@@ -40,7 +40,7 @@ function ViewPost(props) {
                 setUserId(res.data.userId);
                 setDisplayPostText(res.data.post.postText);
             } else  if (res.status === 404) {
-                navigate('/picpark');
+                navigate('/');
             }
 
         })
@@ -93,7 +93,7 @@ function ViewPost(props) {
 
     //Return to the Main view for the posts server.
     const exitViewPost = () => {
-        navigate(`/picpark/s/${params.serverId}`);
+        navigate(`/s/${params.serverId}`);
     }
 
    
