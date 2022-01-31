@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "picpark",
+  "name": "picpark - A project by Karl Pollock, 2022.",
   "icons": [
     {
       "src": "favicon.ico",
