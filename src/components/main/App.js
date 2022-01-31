@@ -91,7 +91,7 @@ function App(props) {
                     <div className="overflow-auto col-8 vh-100 border border-secondary full-height">
                     
                         <Routes>
-                            <Route path="/picpark" element={<SplashPage/>}/>
+                            <Route path="/ppicpark" element={<SplashPage/>}/>
                             <Route path="/picpark/s/:serverId" element={<Main refreshLeftSidebar={refreshLeftSidebar}/>} />
                             <Route path="/picpark/createServer" element={ <ServerCreation refreshLeftSidebar={refreshLeftSidebar}/>}/>
                             <Route path="/picpark/post/:serverId" element={<PostCreation/>}/>
