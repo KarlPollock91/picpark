@@ -57,8 +57,8 @@ function PostCreation(props) {
     return (
         <div className="text-center container position-relative w-100 h-100">
             <i className="bi bi-x-circle position-absolute top-0 end-0 fa-lg" onClick={exitPostCreation}></i>
-            <div className="start-50 top-50 translate-middle position-absolute w-75 mt-5">
-                
+            <div className="mx-auto w-75 mt-5">
+                <h3>New Post</h3>
                 <div>{errorText}</div> 
                 Post Text
                 <div className="input-group w-100">

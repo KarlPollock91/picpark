@@ -4,7 +4,7 @@
 
 //RightSidebar.js is the component that contains the log out button as well as a link to the current user's profile
 
-import React, {useState} from 'react';
+import React from 'react';
 import UserThumbnail from '../thumbnails/UserThumbnail';
 
 function RightSidebar(props) {

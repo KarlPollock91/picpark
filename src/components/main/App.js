@@ -8,6 +8,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Route, Routes} from 'react-router-dom';
 
+
 import * as Constants from '../../utils/constants';
 
 import LeftSidebar from './LeftSidebar';
@@ -26,7 +27,6 @@ import SplashPage from './SplashPage';
 function App(props) {
     const [loading, setLoading] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
-
     const [userInfo, setUserInfo] = useState();
 
     //Component hook that checks if user is logged.
@@ -50,7 +50,6 @@ function App(props) {
                 if (res.status === 200) {
                     setUserInfo(res.data)
                     setLoggedIn(true);
-
                 }
             }).catch((err) => {
                 localStorage.clear();
@@ -112,7 +111,7 @@ function App(props) {
     } else {
         return(
             <div className="wrapper w-100 h-100">
-                <Login verifyAuth={verifyAuth}/>
+                <Login/>
             </div>
         )
     }

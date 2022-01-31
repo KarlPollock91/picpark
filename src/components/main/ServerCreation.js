@@ -64,6 +64,7 @@ function ServerCreation(props) {
             <div className="text-center position-relative w-100 h-100">
                 <i className="bi bi-x-circle position-absolute top-0 end-0 fa-lg" onClick={cancelServerCreation}></i>
                 <div className="mx-auto w-75 mt-5">
+                    <h3>Server Creation</h3>
                     <div>{errorText}</div>
                     Server Name
                     <div className="input-group mb-3 ">

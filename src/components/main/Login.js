@@ -5,6 +5,7 @@
 //Login.js contains the component that handles both login and registration for new users.
 
 import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {Form} from 'react-bootstrap';
 
@@ -18,6 +19,8 @@ function Login(props) {
     const [accountNameInput, setAccountNameInput] = useState('');
     const [errorText, setErrorText] = useState('');
     const [formRef] = useState(React.createRef());
+
+    const navigate = useNavigate();
     
     //Toggles the display between login mode and registration mode.
     const toggleRegistrationMode = () => {
@@ -83,7 +86,7 @@ function Login(props) {
         .then((res) => {
             if (res.status === 200) {
                 localStorage.setItem("authToken", res.data.token);
-                props.verifyAuth();
+                navigate("/picpark")
             } 
         })
         .catch((err) => {
@@ -98,12 +101,13 @@ function Login(props) {
     if (!registrationMode){
         return (
             <div className="input-form-wrapper text-center w-50 container my-5">
+                <h2 className="m-3">Login</h2>
                 <div className="row">{errorText}</div>
                 <div className="input-group mb-3 row">
                     <input type="text" value={accountNameInput} onInput={e => setAccountNameInput(e.target.value)} className="form-control" placeholder="Account Name" aria-label="Account Name" aria-describedby="basic-addon1"/>
                 </div>
                 <div className="input-group mb-3 row">
-                    <input type="text" value={passwordInput} onInput={e => setPasswordInput(e.target.value)} className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"/>
+                    <input type="password" value={passwordInput} onInput={e => setPasswordInput(e.target.value)} className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"/>
                 </div>
                 <button type="button row" onClick={handleLogin} className="btn btn-outline-primary">Login</button>
                 <div className="user-select-none row" onClick={toggleRegistrationMode}>Register new account</div>
@@ -112,6 +116,7 @@ function Login(props) {
     } else {
         return (
             <div className="input-form-wrapper text-center w-50 container my-5">
+                <h2 className="m-3">Registration</h2>
                 <div className="row">{errorText}</div>
                 <div className="input-group mb-3 row">
                     <input type="text" maxLength={20} value={usernameInput} onInput={e => setUsernameInput(e.target.value)} id="reg-username" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
@@ -121,10 +126,10 @@ function Login(props) {
                     <input type="text" value={accountNameInput} onInput={e => setAccountNameInput(e.target.value)} className="form-control" placeholder="Account Name" aria-label="Account Name" aria-describedby="basic-addon1"/>
                 </div>
                 <div className="input-group mb-3 row">
-                    <input type="text" value={passwordInput} onInput={e => setPasswordInput(e.target.value)} className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"/>
+                    <input type="password" value={passwordInput} onInput={e => setPasswordInput(e.target.value)} className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"/>
                 </div>
                 <div className="input-group mb-3 row">
-                    <input type="text" value={confirmPasswordInput} onInput={e => setConfirmPasswordInput(e.target.value)} className="form-control" placeholder="Confirm Password" aria-label="Confirm Password" aria-describedby="basic-addon1"/>
+                    <input type="password" value={confirmPasswordInput} onInput={e => setConfirmPasswordInput(e.target.value)} className="form-control" placeholder="Confirm Password" aria-label="Confirm Password" aria-describedby="basic-addon1"/>
                 </div>
                 <Form className="row" action="/file" method="post" encType="multipart/form-data">
                         <Form.Group controlId="formFile" className="mb-3" a>

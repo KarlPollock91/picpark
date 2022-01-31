@@ -48,6 +48,7 @@ function ViewPost(props) {
 
     //Sends inputted data to the server to edit the post.
     const editPost = () => {
+        setEditMode(false);
         const fd = new FormData();
         fd.append("displayPostText", displayPostText);
 
@@ -136,7 +137,10 @@ function ViewPost(props) {
                                 {
                                     editMode 
                                     ?
+                                    <div>
                                     <textarea type="text" value={displayPostText} onInput={e => setDisplayPostText(e.target.value)} className="form-control mt-3" rows="2" placeholder="Edit Post" aria-label="Edit Post"/>
+                                    <button type="button" onClick={editPost} className="btn-md btn-outline-primary">Save Changes</button>
+                                    </div>
                                     :
                                     displayPostText
                                 }
