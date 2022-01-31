@@ -7,7 +7,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Route, Routes} from 'react-router-dom';
-
+import {useNavigate} from 'react-router-dom';
 
 import * as Constants from '../../utils/constants';
 
@@ -26,15 +26,16 @@ import SplashPage from './SplashPage';
 
 function App(props) {
     const [loading, setLoading] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
     const [userInfo, setUserInfo] = useState();
+
+    const navigate = useNavigate();
 
     //Component hook that checks if user is logged.
     useEffect(() => {
         document.title = "picpark"
         if (!localStorage.getItem("authToken")){
             setLoading(false);
-            setLoggedIn(false);
+            navigate('/login');
         } else {
             verifyAuth();
         }
@@ -50,17 +51,20 @@ function App(props) {
             }).then((res) => {
                 if (res.status === 200) {
                     setUserInfo(res.data)
-                    setLoggedIn(true);
+                } else {
+                    navigate('/login');
                 }
             }).catch((err) => {
                 localStorage.clear();
+                navigate('/login');
             });
     }
 
     //Log out and return to login screen.
     const logout = () => {
         localStorage.clear();
-        setLoggedIn(false);
+        setUserInfo(null);
+        navigate('/login');
     }
 
 
@@ -82,17 +86,20 @@ function App(props) {
                 <Loading/>
             </div>
         )
-    } else if (loggedIn) {
+    } else {
         return(
             <div className="w-100 vh-100 container-fluid">
                 <div className="row">
                     <div  className="col vh-100 border border-secondary full-height">
-                        <LeftSidebar newServer={newServer} userId={userInfo._id}/>
+                        {userInfo ?
+                            <LeftSidebar newServer={newServer} userId={userInfo._id}/>
+                        : ""}
                     </div>
                     <div className="overflow-auto col-8 vh-100 border border-secondary full-height">
                     
                         <Routes>
                             <Route path="" element={<SplashPage/>}/>
+                            <Route path="/login" element={<Login verifyAuth={verifyAuth}/>}/>
                             <Route path="/s/:serverId" element={<Main refreshLeftSidebar={refreshLeftSidebar}/>} />
                             <Route path="/createServer" element={ <ServerCreation refreshLeftSidebar={refreshLeftSidebar}/>}/>
                             <Route path="/post/:serverId" element={<PostCreation/>}/>
@@ -103,18 +110,14 @@ function App(props) {
 
                     </div>
                     <div  className="col vh-100 border border-secondary">
-                        <RightSidebar newUser={newUser} userInfo={userInfo} logoutCallback={logout}/>
+                        {userInfo ?
+                            <RightSidebar newUser={newUser} userInfo={userInfo} logoutCallback={logout}/>
+                        : ""}
                     </div>
                 </div>
             </div>
         )
 
-    } else {
-        return(
-            <div className="wrapper w-100 h-100">
-                <Login/>
-            </div>
-        )
     }
     
 } 
